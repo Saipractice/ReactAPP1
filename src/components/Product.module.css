@@ -1,0 +1,19 @@
+
+.product {
+    width: 300px;
+    height: 200px;
+}
+
+.img {
+    width: 100px;
+    height: 50px;
+}
+
+/* Add this new class for a container to hold multiple products */
+.productContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
