@@ -1,34 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
-import Footer from './Footer';
+import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom';
 import Body from './Body';
+import AboutPage from './About';
+import ContactPage from './Contact';
+import Footer from './Footer';
 
-// Then include the <Header /> component in your App's JSX
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Body />
+  },
+  {
+    path: "/about",
+    element: <AboutPage />
+  },
+  {
+    path: "/contact",
+    element: <ContactPage />
+  }
+])
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-        <Header />
-        <h1>Hello World</h1>
-        <Body />
-        <Footer />
-        
-        
-      </header>
-    </div>
+    <>
+      <Header />
+      <Link to="/about">About</Link>
+      <RouterProvider router={router}>
+        <div className="App">
+        </div>
+      </RouterProvider>
+      <Footer />
+    </>
   );
 }
 
